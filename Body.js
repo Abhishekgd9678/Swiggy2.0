@@ -1,6 +1,7 @@
 import React from "react";
 import Filter from "./Filter";
 import Rescard from "./Res-card";
+import Restaurants from "./data";
 
 const Body = () => {
   return (
@@ -11,15 +12,10 @@ const Body = () => {
         </div>
         <div className="Card-Container">
         
-          <Rescard/>
+          {Restaurants.map((rescard)=>{return <Rescard data={rescard}/>})}
         
         
-          <Rescard/>
-          <Rescard/>
-          <Rescard/>
-          <Rescard/>
-          <Rescard/>
-          <Rescard/>
+       
           
       </div>
       </div>

@@ -84,14 +84,32 @@
 
 .card {
   width: 22rem;
-  height: 25rem;
+  height: 30.5rem;
+  overflow:hidden;
   text-align: center;
   border: none;
-
+  transition:  0.5s ease;
   
+}
+
+.card-title{
+  height: 1.7rem;
+  overflow: hidden;
+}
+.t{
+  height: 100%;
+  font-size: larger;
+}
+.total-des{
+  height: 10rem;
+}
+.image-container{
+  height: 20rem;
 }
 .card:hover{
     cursor: pointer;
+    scale: 1.02;
+
 }
 .card-img:hover{
     border: 1px solid grey;
@@ -99,6 +117,7 @@
 
 .card-img{
    border-radius: 18;
+   height: 100%;
     
 } 
 .card-title{
@@ -123,5 +142,7 @@
 }
 .card-des{
     display: flex;
-    justify-content: space-around;
-}
+
+    justify-content:space-around;
+
+ }

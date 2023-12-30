@@ -1,21 +1,30 @@
 import React from 'react'
 
-const Rescard = () => {
+const Rescard = (props) => {
+ const {name,cloudinaryImageId,areaName,avgRating}=props.data.info;
+ const{deliveryTime}=props.data.info.sla;
+                                                    
   return (
-    <div className='card'>
-     
-    <img className="card-img" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/yvutldywx79ihdsvejpb"/>
+    <div className='card border border-2 rounded-5'>
+     <div className='image-container'>
+     <img className="card-img" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId}/>
+     </div>
+    
+    
+    
+    <div className='total-des'>
     <div className='card-title'>
-        <h3>Restaurant Name</h3>
+        <h4 className='t fw-bold'>{name}</h4>
     </div>
    
    <div className='card-des'>
-   <p className='card-text'> Res-rating </p>
-        <p className='card-text'> Res-Distance </p>
+   <p className='card-text fs-5 fw-medium' > {avgRating} <i class="fa-solid fa-star" style={{"color": "#66c83c"}}></i></p>
+        <p className='card-text fs-5 fw-semibold'> {deliveryTime} mins </p>
    </div>
         
-        <p className='card-text'>
-     Cusienes </p>
+        <p className='card-text fw-medium'>
+     {areaName} </p>
+    </div>
     </div>
     
   )
