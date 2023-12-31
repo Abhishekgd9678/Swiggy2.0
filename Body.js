@@ -12,7 +12,7 @@ const Body = () => {
         </div>
         <div className="Card-Container">
         
-          {Restaurants.map((rescard)=>{return <Rescard data={rescard}/>})}
+          {Restaurants.map((rescard)=>{return <Rescard key={rescard.info.id} data={rescard}/>})}
         
         
        
