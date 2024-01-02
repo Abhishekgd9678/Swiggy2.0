@@ -2,58 +2,49 @@ import React, { useEffect, useState } from "react";
 import Rescard from "./Res-card";
 import Shimmer from "./shimmer";
 
-
 const Body = () => {
   const [res, setres] = useState([]);
-  const [style, setstyle] = useState("btn btn-outline-dark");
-  const [Filtertext, setfiltertext] = useState("");
+  const [filterd, setfiltered] = useState([]);
   const [search, setsearch] = useState("");
-  console.log(search);
+  const [filterstate, setfilterstate] = useState(0);
 
   const FilterTopRes = () => {
-
-    if(search.length==0){setfiltertext("No input provided")}
-    if (style === "btn btn-warning") {
-      setres(Restaurants), setstyle("btn btn-outline-dark");
-      setfiltertext("");
+    if (!filterstate) {
+      const Filtered = res.filter((res) => res.info.avgRating >= 4.5);
+      setfiltered(Filtered);
+      setfilterstate(1);
     } else {
-      const Filtered = Restaurants.filter((res) => res.info.avgRating >= 4.5);
-      setres(Filtered);
-      setstyle("btn btn-warning");
-      setfiltertext("Top Restaurants Near You");
+      setfiltered(res);
+      setfilterstate(0);
     }
   };
 
   const filtersearch = () => {
-    const filter = Restaurants.filter((res) =>
+    const filter = res.filter((res) =>
       res.info.name.toLowerCase().includes(search.toLowerCase())
     );
-    setres(filter);
+    setfiltered(filter);
   };
- 
-  
 
+  const fetchData = async () => {
+    const response = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.28475216724439&lng=76.64010163396597&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
 
+    const data = await response.json();
+    var respart =
+      data?.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
+
+    setres(respart);
+    setfiltered(respart);
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      
-        const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.28475216724439&lng=76.64010163396597&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-      
-  
-        const data = await response.json();
-        const respart = data?.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
- 
-        setres(respart);
-      
-    };
-
     fetchData();
   }, []);
 
-  if(res.length===0)
-  {
-    return(<Shimmer/>)
+  if (res.length === 0) {
+    return <Shimmer />;
   }
 
   return (
@@ -80,16 +71,18 @@ const Body = () => {
             </div>
           </div>
           <div className="res-filters">
-            <button className={style} onClick={FilterTopRes} type="submit">
+            <button
+              className="btn btn-outline-dark"
+              onClick={FilterTopRes}
+              type="submit"
+            >
               Top Rated
             </button>
           </div>
         </div>
-        <div>
-          <h4 className="hidden-text">{Filtertext}</h4>
-        </div>
+
         <div className="Card-Container">
-          {res.map((rescard) => {
+          {filterd.map((rescard) => {
             return <Rescard key={rescard.info.id} data={rescard} />;
           })}
         </div>
