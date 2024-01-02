@@ -132,7 +132,7 @@
 .card-title{
     margin-top:20 ;
 }
-.Card-Container {
+.Card-Container  {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -154,5 +154,22 @@
     display: flex;
 
     justify-content:space-around;
+
+ }
+ .Shimmer-Container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top:215;
+  padding:  10;
+
+  justify-content: space-around;
+ }
+
+ .shimmer-card{
+background: linear-gradient(to right,#c9c9c9 , white);
+margin: 15;
+border: none;
+width: 22rem;
+height: 30.5rem;
 
  }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Rescard from "./Res-card";
+import Shimmer from "./shimmer";
 
 
 const Body = () => {
@@ -42,13 +43,18 @@ const Body = () => {
   
         const data = await response.json();
         const respart = data?.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
-        console.log(respart);
+ 
         setres(respart);
       
     };
 
     fetchData();
   }, []);
+
+  if(res.length===0)
+  {
+    return(<Shimmer/>)
+  }
 
   return (
     <>
