@@ -16,6 +16,7 @@ const Body = () => {
     } else {
       setfiltered(res);
       setfilterstate(0);
+      
     }
   };
 
