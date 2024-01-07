@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Rescard from "./Res-card";
+import { Link } from "react-router-dom";
 import Shimmer from "./shimmer";
+import useResinfo from "../utils/useResinfo";
 
 const Body = () => {
-  const [res, setres] = useState([]);
-  const [filterd, setfiltered] = useState([]);
+
+  const res=useResinfo();
+
+  const [filterd, setfiltered] = useState(res);
+  useEffect(()=>{setfiltered(res)},[res])
+ 
   const [search, setsearch] = useState("");
   const [filterstate, setfilterstate] = useState(0);
 
@@ -27,25 +33,11 @@ const Body = () => {
     setfiltered(filter);
   };
 
-  const fetchData = async () => {
-    const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.28475216724439&lng=76.64010163396597&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-
-    const data = await response.json();
-    var respart =
-      data?.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
-
-    setres(respart);
-    setfiltered(respart);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   if (res.length === 0) {
+ 
     return <Shimmer />;
+  
   }
 
   return (
@@ -74,8 +66,8 @@ const Body = () => {
           <div className="res-filters">
             <button
               className="btn btn-outline-dark"
-              onClick={FilterTopRes}
-              type="submit"
+             onClick={FilterTopRes}
+             type="submit"
             >
               Top Rated
             </button>
@@ -84,7 +76,7 @@ const Body = () => {
 
         <div className="Card-Container">
           {filterd.map((rescard) => {
-            return <Rescard key={rescard.info.id} data={rescard} />;
+            return <Link to={'/res/'+rescard.info.id} key={rescard.info.id}><Rescard  data={rescard} /></Link>;
           })}
         </div>
       </div>

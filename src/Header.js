@@ -1,5 +1,7 @@
 import React from "react";
 import logo from "../images/logo.png";
+import { Link } from "react-router-dom";
+
 
 const Header = () => {
   return (
@@ -21,7 +23,7 @@ const Header = () => {
         <ul className="links">
           <a className="ref">
             <li className="header-icons">
-              <i class="fa-solid fa-house"></i> Home
+              <i class="fa-solid fa-house"></i><Link to='/'>Home</Link> 
             </li>
           </a>
           <a className="ref">

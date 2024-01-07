@@ -7,7 +7,10 @@
   padding: 20;
   background: linear-gradient(to right, rgb(231, 227, 227), white);
 }
-
+a{
+  text-decoration: none;
+  color: initial;
+}
 .logo {
   height: 100px;
 }
@@ -173,3 +176,21 @@ width: 22rem;
 height: 30.5rem;
 
  }
+
+.Res-Menu{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 10% 0 10%;
+  width: 80%;
+  justify-content: center;
+}
+.Menu-details{
+  margin-left:100 ;
+  width: 50%;
+}
+.Res-About{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+margin: 30 0 30 0;
+}
