@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./shimmer";
 import useMenuinfo from "../utils/useMenuinfo";
 
+
 const ResMenu = () => {
 
 
@@ -38,7 +39,7 @@ else{
 
             </div>
             
-       
+    
         </div>
         <div className="Menu-details">
                 <h4>
