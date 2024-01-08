@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .Header {
   display: flex;
   flex-wrap: wrap;
@@ -180,13 +183,18 @@ height: 30.5rem;
 .Res-Menu{
   display: flex;
   flex-wrap: wrap;
-  margin: 0 10% 0 10%;
-  width: 80%;
+
+  
   justify-content: center;
 }
 .Menu-details{
-  margin-left:100 ;
-  width: 50%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ 
+
+ 
 }
 .Res-About{
   display: flex;
@@ -194,3 +202,6 @@ height: 30.5rem;
   justify-content: space-between;
 margin: 30 0 30 0;
 }
+
+
+

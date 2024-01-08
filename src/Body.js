@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Rescard from "./Res-card";
+import Rescard, { withPromotedLabel } from "./Res-card";
 import { Link } from "react-router-dom";
 import Shimmer from "./shimmer";
 import useResinfo from "../utils/useResinfo";
 
+
 const Body = () => {
 
   const res=useResinfo();
+  const Promoted=withPromotedLabel(Rescard);
 
   const [filterd, setfiltered] = useState(res);
   useEffect(()=>{setfiltered(res)},[res])
@@ -25,7 +27,7 @@ const Body = () => {
       
     }
   };
-
+  
   const filtersearch = () => {
     const filter = res.filter((res) =>
       res.info.name.toLowerCase().includes(search.toLowerCase())
@@ -42,11 +44,11 @@ const Body = () => {
 
   return (
     <>
-      <div className="body">
+      <div className="body m-4 bg-gradient-to-r from-slate-200 to-slate-100 ">
         <div className="filters">
           <div className="search">
             <div>
-              <input
+              <input className="border border-black text-lg"
                 value={search}
                 onChange={(e) => setsearch(e.target.value)}
                 type="text"
@@ -76,7 +78,11 @@ const Body = () => {
 
         <div className="Card-Container">
           {filterd.map((rescard) => {
-            return <Link to={'/res/'+rescard.info.id} key={rescard.info.id}><Rescard  data={rescard} /></Link>;
+            return <Link to={'/res/'+rescard.info.id} key={rescard.info.id}>
+              {
+               (rescard.info.avgRating>4.2)?<Promoted data={rescard}/>:
+              <Rescard  data={rescard} />}
+              </Link>;
           })}
         </div>
       </div>

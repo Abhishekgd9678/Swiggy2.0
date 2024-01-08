@@ -9,10 +9,12 @@ const useResinfo = () => {
         );
     
         const data = await response.json();
+    
         var respart =
           data?.data.cards[2].card.card.gridElements.infoWithStyle.restaurants;
     
         setres(respart);
+    
      
     
       };

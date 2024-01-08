@@ -17,7 +17,7 @@ const Header = () => {
         </div>
         <div className="address">
           <div className="display-address">
-            <h4>Vidyaranyapuram, Mysuru</h4>
+            <h1 className="text-lg font-bold">Vidyaranyapuram, Mysuru</h1>
           </div>
           <div className="down-arrow">
             <i class="fa-solid fa-chevron-down"></i>
@@ -25,13 +25,13 @@ const Header = () => {
         </div>
       </div>
       <div className="right">
-        <ul className="links">
+        <ul className="links sm:my-4 py-4 ">
 
      <a className="ref">
-            <h3 className="header-icons">
+            
 
-            {(status)?<i class="bi bi-wifi" style={{"color":"green"}}></i>:<i class="bi bi-wifi-off"></i>} 
-            </h3>
+            {(status)?<h2 className="bi bi-wifi text-green-600 "> Online</h2>: <h2 className="bi bi-wifi-off text-red-700"> Offline </h2>} 
+          
           </a>
    
           <a className="ref">
