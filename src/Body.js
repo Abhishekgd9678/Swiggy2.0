@@ -52,7 +52,7 @@ const Body = () => {
                 value={search}
                 onChange={(e) => setsearch(e.target.value)}
                 type="text"
-                placeholder="Search"
+                placeholder="Search" 
               />
             </div>
             <div>

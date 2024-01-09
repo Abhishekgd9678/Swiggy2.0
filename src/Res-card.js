@@ -34,6 +34,7 @@ const Rescard = (props) => {
     return(props)=>{
       return(
         <div className=''>
+    
           <label className='bg-gray-500 text-white w-[100] text-center rounded-tl-3xl relative top-7 left-1 z-1'>Top Rated</label>
           <Rescard {...props}/>
         </div>

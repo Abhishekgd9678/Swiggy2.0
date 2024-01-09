@@ -58,7 +58,8 @@ else{
             
        
         </div>
-        <div className="mt-28 w-2/4  Menu-details  ">
+        <div className="mt-28 w-2/4 Menu-details  ">
+        <h3 className='text-4xl bg-slate-50 w-full text-center font-medium'>Menu</h3>
                 {menu.map(cat=><Category data={cat} />)}
         </div>
    
