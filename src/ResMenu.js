@@ -22,6 +22,7 @@ const ResMenu = () => {
  
     const x  =j.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards.filter(card=>card.card.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
     setmenu(x);
+    console.log(x)
   };
   useEffect(() => {
     fetchMenu();
@@ -58,8 +59,8 @@ else{
             
        
         </div>
-        <div className="mt-28 w-2/4 Menu-details  ">
-        <h3 className='text-4xl bg-slate-50 w-full text-center font-medium'>Menu</h3>
+        <div className="mt-28 Menu-details  ">
+
                 {menu.map(cat=><Category data={cat} />)}
         </div>
    

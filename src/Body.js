@@ -44,7 +44,8 @@ const Body = () => {
 
   return (
     <>
-      <div className="body m-4 bg-gradient-to-r from-slate-200 to-slate-100 ">
+      <div className="body m-4 bg-gradient-to-r 
+       ">
         <div className="filters">
           <div className="search">
             <div>
@@ -58,7 +59,7 @@ const Body = () => {
             <div>
               <button
                 onClick={filtersearch}
-                className="btn btn-warning"
+                className="btn btn-outline-primary"
                 type="Submit"
               >
                 Serach
